@@ -1,6 +1,11 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 public class K_MEANS
 {
@@ -140,6 +145,32 @@ public class K_MEANS
         //one training iteration
         assign_to_clusters();
         update_clusters();
+    }
+
+
+    public void save_clusters()
+    {
+        try
+        {
+            File store = new File("clusters.txt");
+            if(store.createNewFile())
+            {
+                System.out.println("File Created");
+            }
+        }
+        catch(IOException e)
+        {
+            System.out.println("File bad");
+        }
+        try
+        {
+            FileWriter writer = new FileWriter("clusters.txt");
+            writer.write(Arrays.deepToString(centroid));
+        }
+        catch (IOException e)
+        {
+            System.out.println("error");
+        }
     }
 
 
