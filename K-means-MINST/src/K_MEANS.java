@@ -186,7 +186,17 @@ public class K_MEANS
         {
             File model = new File(filename);
             Scanner reader = new Scanner(model);
-            
+            String clust = reader.nextLine();
+            num_clusters = Integer.valueOf(clust);
+            centroid = new double[num_clusters][];
+
+            for(int i = 0;i<num_clusters;i++)
+            {
+                String cent = reader.nextLine();
+                cent = cent.substring(1, centroid.length-1);
+                String[] arrcent = cent.split(",");
+                centroid[i] = Arrays.stream(arrcent).mapToDouble(Double::parseDouble).toArray();//https://stackoverflow.com/questions/9101301/how-to-convert-string-array-to-double-array-in-one-line
+            }
 
 
         }
