@@ -9,14 +9,14 @@ public class MNIST_formatting
 
 
     // this reads 100 training examples to test the kmeans
-    public static  double[][] read_file()
+    public static  double[][] read_file(int num_data)
     {
         try {
             FileInputStream training_set = new FileInputStream("mnist_train.csv");
             Scanner reader = new Scanner(training_set);
-            double[][] dataset = new double[1000][];
+            double[][] dataset = new double[num_data][];//
             reader.useDelimiter(",");
-            for (int j = 0; j < 1000; j++)
+            for (int j = 0; j < num_data; j++)//
             {
                 String data = reader.nextLine();
                 String[] arr = Arrays.copyOfRange(data.split(","),1,785);

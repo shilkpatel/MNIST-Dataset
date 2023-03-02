@@ -22,6 +22,7 @@ public class Representation
     }
     public void display_images(double[][] images)
     {
+
         for(int i=0;i<num_images;i++)
         {
 
@@ -30,6 +31,7 @@ public class Representation
             panel.add(image_canvases[i]);
             panel.setVisible(true);
         }
+
         display.setVisible(true);
 
     }

@@ -8,20 +8,26 @@ import java.awt.image.BufferedImage;
 import java.awt.Color;
 import javax.swing.*;
 
+
 public class Main {
     public static void main(String[] args)
     {
 
         System.out.println("Hello world!");
-        double[][] dataset = MNIST_formatting.read_file();
-        K_MEANS test = new K_MEANS(dataset,10);
+        double[][] dataset = MNIST_formatting.read_file(1000);
+        K_MEANS test = new K_MEANS(dataset,25);
 
-        Representation oupu= new Representation(10);// I can present first 5 images from a set
-        for(int i=0;i<10;i++)
+        Representation oupu= new Representation(25);// I can present first 5 images from a set
+        long start = System.currentTimeMillis();
+        for(int i=0;i<20;i++)
         {
-            oupu.display_images(test.centroid);
+            System.out.println(i);
+            //oupu.display_images(test.centroid);
             test.train();
         }
+        long finish = System.currentTimeMillis();
+        System.out.println(finish-start);
+        oupu.display_images(test.centroid);
         test.save_clusters();
 
         /*
