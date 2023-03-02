@@ -22,6 +22,7 @@ public class Main {
             oupu.display_images(test.centroid);
             test.train();
         }
+        test.save_clusters();
 
         /*
         BufferedImage img = new BufferedImage(28, 28, BufferedImage.TYPE_INT_RGB);

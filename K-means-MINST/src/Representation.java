@@ -24,6 +24,7 @@ public class Representation
     {
         for(int i=0;i<num_images;i++)
         {
+
             BufferedImage out = format_image(images[i]);
             image_canvases[i] = new JLabel(new ImageIcon(out));
             panel.add(image_canvases[i]);
