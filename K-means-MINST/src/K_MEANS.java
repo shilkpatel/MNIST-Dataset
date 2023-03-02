@@ -1,11 +1,9 @@
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-import java.io.File;
-import java.io.FileNotFoundException;
 
 public class K_MEANS
 {
@@ -24,6 +22,8 @@ public class K_MEANS
         generate_centroids();
         clusters = new LinkedList[num_clusters];
     }
+
+    public K_MEANS(){}// this is for when it is loaded from a file where the user doesn't know the number of clusters
     public void assign_to_clusters()
     {
         for(int i=0;i<datapoints.length;i++)// for each of the datapoints
@@ -165,11 +165,34 @@ public class K_MEANS
         try
         {
             FileWriter writer = new FileWriter("clusters.txt");
-            writer.write(Arrays.deepToString(centroid));
+            writer.write(Integer.toString(num_clusters)+"\n");
+            for(double[] i:centroid)
+            {
+                writer.write(Arrays.toString(i)+"\n");
+            }
+
         }
         catch (IOException e)
         {
             System.out.println("error");
+        }
+    }
+
+
+
+    public void load_clusters(String filename)
+    {
+        try
+        {
+            File model = new File(filename);
+            Scanner reader = new Scanner(model);
+            
+
+
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File Not found");
         }
     }
 

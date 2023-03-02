@@ -7,6 +7,7 @@ public class Representation
 {
     int num_images;
     JFrame display = new JFrame();
+
     JPanel panel=new JPanel();
     JLabel[] image_canvases;
     JButton iteration = new JButton();
@@ -16,6 +17,7 @@ public class Representation
         num_images = num;
         image_canvases= new JLabel[num_images];
         display.add(panel);
+        display.setSize(100,100);
 
     }
     public void display_images(double[][] images)

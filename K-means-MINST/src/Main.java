@@ -15,8 +15,8 @@ public class Main {
         System.out.println("Hello world!");
         double[][] dataset = MNIST_formatting.read_file();
         K_MEANS test = new K_MEANS(dataset,10);
-
-        Representation oupu= new Representation(3);
+        test.save_clusters();
+        Representation oupu= new Representation(5);// I can present first 5 images from a set
         oupu.display_images(dataset);
         /*
         BufferedImage img = new BufferedImage(28, 28, BufferedImage.TYPE_INT_RGB);
